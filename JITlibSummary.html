@@ -7,7 +7,7 @@ lang="en" xml:lang="en">
 <title>JitLib summary / cheatsheet</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2011-06-02 12:23:44 EEST"/>
+<meta name="generated" content="2011-06-02 12:32:01 EEST"/>
 <meta name="author" content="Ioannis Zannos"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -113,60 +113,117 @@ lang="en" xml:lang="en">
 <div class="outline-text-2" id="text-2">
 
 
-<p>
-ProxySpace:                     Environment of references on the server
-EnvironmentRedirect:    Environment that redirects access (put) and assignment (at)
-LazyEnvir:                      Environment with deferred evaluation and default values.
-Maybe                           Referentially transparent proxy object
-</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">ProxySpace</td><td class="left">Environment of references on the server</td></tr>
+<tr><td class="left">EnvironmentRedirect</td><td class="left">Environment that redirects access (put) and assignment (at)</td></tr>
+<tr><td class="left">LazyEnvir</td><td class="left">Environment with deferred evaluation and default values</td></tr>
+<tr><td class="left">Maybe</td><td class="left">Referentially transparent proxy object</td></tr>
+</tbody>
+</table>
 
-<p>
-Pdef            stream reference definition
-keep a reference to a stream that can be replaced while playing.
-Pdefn   non event stream reference definition
-keep a reference to a stream that can be replaced while playing.
-A change in the pattern definition propagates through all streams
-Tdef            task reference definition
-keep a reference to a task (time pattern) that can be replaced while playing
-Ndef            node proxy definition
-Reference to a proxy, forms an alternative to ProxySpace. 
-Fdef    Placeholder for functions to calculate with
-</p>
-<p>
-Pbindef 
-Psym    use a pattern of symbols to embed Pdefs
-Pnsym   use a pattern of symbols to embed Pdefn's
-</p>
-<p>
-NodeProxy
-PatternProxy    
-EventPatternProxy
-TaskProxy
-PbindProxy
-Pdict           pattern that embeds patterns from a dictionary
-</p>
-<p>
-BusPlug
-SkipJack
-EnvGate
-</p>
-<p>
-History
-</p>
-<p>
-Monitor
-</p>
-<p>
-ProxyMixer
-TdefAllGui
-PdefAllGui
-NdefMixer
-TdefGui
-PdefGui
-MonitorGui
-NdefGui
-NdefParamGui
-</p>
+
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">Pdef</td><td class="left">stream reference definition</td></tr>
+<tr><td class="left"></td><td class="left">keep a reference to a stream that can be replaced while playing</td></tr>
+<tr><td class="left">Pdefn</td><td class="left">non event stream reference definition</td></tr>
+<tr><td class="left"></td><td class="left">keep a reference to a stream that can be replaced while playing.</td></tr>
+<tr><td class="left"></td><td class="left">A change in the pattern definition propagates through all streams</td></tr>
+<tr><td class="left">Tdef</td><td class="left">task reference definition</td></tr>
+<tr><td class="left"></td><td class="left">keep a reference to a task (time pattern) that can be replaced while playing</td></tr>
+<tr><td class="left">Ndef</td><td class="left">node proxy definition</td></tr>
+<tr><td class="left"></td><td class="left">Reference to a proxy, forms an alternative to ProxySpace.</td></tr>
+<tr><td class="left">Fdef</td><td class="left">Placeholder for functions to calculate with</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">Pbindef</td><td class="left"></td></tr>
+<tr><td class="left">Psym</td><td class="left">use a pattern of symbols to embed Pdefs</td></tr>
+<tr><td class="left">Pnsym</td><td class="left">use a pattern of symbols to embed Pdefn's</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">NodeProxy</td><td class="left"></td></tr>
+<tr><td class="left">PatternProxy</td><td class="left"></td></tr>
+<tr><td class="left">EventPatternProxy</td><td class="left"></td></tr>
+<tr><td class="left">TaskProxy</td><td class="left"></td></tr>
+<tr><td class="left">PbindProxy</td><td class="left"></td></tr>
+<tr><td class="left">Pdict</td><td class="left">pattern that embeds patterns from a dictionary</td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">BusPlug</td><td class="left"></td></tr>
+<tr><td class="left">SkipJack</td><td class="left"></td></tr>
+<tr><td class="left">EnvGate</td><td class="left"></td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">History</td><td class="left"></td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">Monitor</td><td class="left"></td></tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">ProxyMixer</td><td class="left"></td></tr>
+<tr><td class="left">TdefAllGui</td><td class="left"></td></tr>
+<tr><td class="left">PdefAllGui</td><td class="left"></td></tr>
+<tr><td class="left">NdefMixer</td><td class="left"></td></tr>
+<tr><td class="left">TdefGui</td><td class="left"></td></tr>
+<tr><td class="left">PdefGui</td><td class="left"></td></tr>
+<tr><td class="left">MonitorGui</td><td class="left"></td></tr>
+<tr><td class="left">NdefGui</td><td class="left"></td></tr>
+<tr><td class="left">NdefParamGui</td><td class="left"></td></tr>
+</tbody>
+</table>
+
+
 
 
 </div>
@@ -290,7 +347,7 @@ loop {
 <div id="postamble">
 <p class="author"> Author: Ioannis Zannos
 </p>
-<p class="date"> Date: 2011-06-02 12:23:44 EEST</p>
+<p class="date"> Date: 2011-06-02 12:32:01 EEST</p>
 <p class="creator">HTML generated by org-mode 7.4 in emacs 23</p>
 </div>
 </div>

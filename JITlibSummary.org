@@ -5,51 +5,53 @@
 
 * Class listing with summaries
 
-ProxySpace:			Environment of references on the server
-EnvironmentRedirect: 	Environment that redirects access (put) and assignment (at)
-LazyEnvir: 			Environment with deferred evaluation and default values.
-Maybe				Referentially transparent proxy object
+| ProxySpace          | Environment of references on the server                     |
+| EnvironmentRedirect | Environment that redirects access (put) and assignment (at) |
+| LazyEnvir           | Environment with deferred evaluation and default values     |
+| Maybe               | Referentially transparent proxy object                      |
 
 
-Pdef		stream reference definition
-		keep a reference to a stream that can be replaced while playing.
-Pdefn	non event stream reference definition
-		keep a reference to a stream that can be replaced while playing.
-		A change in the pattern definition propagates through all streams
-Tdef		task reference definition
-		keep a reference to a task (time pattern) that can be replaced while playing
-Ndef		node proxy definition
-		Reference to a proxy, forms an alternative to ProxySpace. 
-Fdef 	Placeholder for functions to calculate with
+
+| Pdef  | stream reference definition                                                  |
+|       | keep a reference to a stream that can be replaced while playing              |
+| Pdefn | non event stream reference definition                                        |
+|       | keep a reference to a stream that can be replaced while playing.             |
+|       | A change in the pattern definition propagates through all streams            |
+| Tdef  | task reference definition                                                    |
+|       | keep a reference to a task (time pattern) that can be replaced while playing |
+| Ndef  | node proxy definition                                                        |
+|       | Reference to a proxy, forms an alternative to ProxySpace.                    |
+| Fdef  | Placeholder for functions to calculate with                                  |
+|       |                                                                              |
 	
-Pbindef	
-Psym	use a pattern of symbols to embed Pdefs
-Pnsym	use a pattern of symbols to embed Pdefn's
+| Pbindef	| |
+| Psym	| use a pattern of symbols to embed Pdefs |
+| Pnsym	| use a pattern of symbols to embed Pdefn's |
 
-NodeProxy
-PatternProxy	
-EventPatternProxy
-TaskProxy
-PbindProxy
-Pdict		pattern that embeds patterns from a dictionary
+| NodeProxy | |
+| PatternProxy	| | 
+| EventPatternProxy | |
+| TaskProxy | | 
+| PbindProxy | |
+| Pdict |		pattern that embeds patterns from a dictionary |
 
-BusPlug
-SkipJack
-EnvGate
+| BusPlug  |   |
+| SkipJack |   |
+| EnvGate  |   |
 
-History
+| History | | 
 
-Monitor
+| Monitor | | 
 
-ProxyMixer
-TdefAllGui
-PdefAllGui
-NdefMixer
-TdefGui
-PdefGui
-MonitorGui
-NdefGui
-NdefParamGui
+| ProxyMixer   |   |
+| TdefAllGui   |   |
+| PdefAllGui   |   |
+| NdefMixer    |   |
+| TdefGui      |   |
+| PdefGui      |   |
+| MonitorGui   |   |
+| NdefGui      |   |
+| NdefParamGui |   |
 
 
 
