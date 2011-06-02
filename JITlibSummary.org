@@ -1,9 +1,11 @@
 #+TITLE: JitLib summary / cheatsheet
 
-* Frequently used classes
-	Tdef (for tasks), ProxySpace, NodeProxy and Ndef (for synths), Pdef and Pdefn (for patterns).
-
 * Class listing with summaries
+
+** Frequently used classes
+	 Tdef (for tasks), ProxySpace, NodeProxy and Ndef (for synths), Pdef and Pdefn (for patterns).
+
+** ProxySpace: Setting up the environment to use proxies
 
 | ProxySpace          | Environment of references on the server                     |
 | EnvironmentRedirect | Environment that redirects access (put) and assignment (at) |
@@ -11,6 +13,7 @@
 | Maybe               | Referentially transparent proxy object                      |
 
 
+** References for playing patterns bound to symbols
 
 | Pdef  | stream reference definition                                                  |
 |       | keep a reference to a stream that can be replaced while playing              |
@@ -28,6 +31,8 @@
 | Psym	| use a pattern of symbols to embed Pdefs |
 | Pnsym	| use a pattern of symbols to embed Pdefn's |
 
+** Proxies
+
 | NodeProxy | |
 | PatternProxy	| | 
 | EventPatternProxy | |
@@ -38,6 +43,8 @@
 | BusPlug  |   |
 | SkipJack |   |
 | EnvGate  |   |
+
+** GUI and networking
 
 | History | | 
 
@@ -54,9 +61,11 @@
 | NdefParamGui |   |
 
 
+* Examples
 
-* Basics
+** Basics
 
+#+BEGIN_EXAMPLE -t -w 100
 //:Setup: Prepare for using Jitib
 
 p = ProxySpace.push(Server.default.boot);
@@ -88,8 +97,11 @@ p = ProxySpace.push(Server.default.boot);
 
 //:Fading out
 ~out = nil;	// setting the out to nil will use the fadeTIme interval to fade to silence
+#+END_EXAMPLE
 
-* Playing  MANY OUTPUTS
+** Playing  MANY OUTPUTS
+
+#+BEGIN_EXAMPLE -t -w 100
 //:playing several output proxies
 // first you have to create them as proxies by sending the message play:
 ~out1.play;
@@ -106,8 +118,11 @@ fork {
 		~out2 = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600] * 2, 0.1) };
 	}
 };
+#+END_EXAMPLE
 
-* Setting Control Inputs
+** Setting Control Inputs
+
+#+BEGIN_EXAMPLE -t -w 100
 
 //:Setting input control parameters
 ~out = { arg freq = 400; SinOsc.ar(freq, 0, 0.1) };
@@ -117,8 +132,11 @@ fork {
 ~out.set(\freq, 1200);
 1.wait;
 ~out.set(\freq, 400);
+#+END_EXAMPLE
 
-* Mapping control inputs to synths
+** Mapping control inputs to synths
+
+#+BEGIN_EXAMPLE -t -w 100
 
 //:Map control inputs
 
@@ -132,3 +150,5 @@ fork {
 ~out = { SinOsc.ar(~lfo.kr * [1, 1.2], 0, 0.1)  };
 2.wait;
 ~lfo = 410;
+
+#+END_EXAMPLE
