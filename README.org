@@ -1,0 +1,13 @@
+
+This is a collection of documentation material for SuperCollider 
+For more info on SuperCollider see: http://supercollider.sourcerforge.net
+
+The files for this project reside online at: 
+
+https://github.com/iani/scdoc
+
+And can also be cloned with git from: git@github.com:iani/scdoc.git
+
+IZ [2011-06-02 Thu 12:12]
+
+
