@@ -1,0 +1,132 @@
+#+TITLE: JitLib summary / cheatsheet
+
+* Frequently used classes
+	Tdef (for tasks), ProxySpace, NodeProxy and Ndef (for synths), Pdef and Pdefn (for patterns).
+
+* Class listing with summaries
+
+ProxySpace:			Environment of references on the server
+EnvironmentRedirect: 	Environment that redirects access (put) and assignment (at)
+LazyEnvir: 			Environment with deferred evaluation and default values.
+Maybe				Referentially transparent proxy object
+
+
+Pdef		stream reference definition
+		keep a reference to a stream that can be replaced while playing.
+Pdefn	non event stream reference definition
+		keep a reference to a stream that can be replaced while playing.
+		A change in the pattern definition propagates through all streams
+Tdef		task reference definition
+		keep a reference to a task (time pattern) that can be replaced while playing
+Ndef		node proxy definition
+		Reference to a proxy, forms an alternative to ProxySpace. 
+Fdef 	Placeholder for functions to calculate with
+	
+Pbindef	
+Psym	use a pattern of symbols to embed Pdefs
+Pnsym	use a pattern of symbols to embed Pdefn's
+
+NodeProxy
+PatternProxy	
+EventPatternProxy
+TaskProxy
+PbindProxy
+Pdict		pattern that embeds patterns from a dictionary
+
+BusPlug
+SkipJack
+EnvGate
+
+History
+
+Monitor
+
+ProxyMixer
+TdefAllGui
+PdefAllGui
+NdefMixer
+TdefGui
+PdefGui
+MonitorGui
+NdefGui
+NdefParamGui
+
+
+
+* Basics
+
+//:Setup: Prepare for using Jitib
+
+p = ProxySpace.push(Server.default.boot);
+
+//:Create an output proxy for playing sounds with
+~out.play;
+
+//:Play some sounds with the output: Each new one replaces the previous output
+~out = { SinOsc.ar([400, 408] * 0.8, 0, 0.2) };
+1.wait;
+~out = { SinOsc.ar([443, 600 - Rand(0,200)], 0, 0.2) };
+1.wait;
+~out = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600], 0.1) + SinOsc.ar(60 * [1,1.1],0,0.2) };
+
+//:Stop playing
+~out.stop;
+
+//:Restart playing
+~out.play;	// also good after Command-.
+
+//:Setting the fadeTime interval
+~out.fadeTime = 1.5;
+// Now play again, with fade time:
+~out = { SinOsc.ar([400, 408] * 0.8, 0, 0.2) };
+3.wait;
+~out = { SinOsc.ar([443, 600 - Rand(0,200)], 0, 0.2) };
+3.wait;
+~out = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600], 0.1) + SinOsc.ar(60 * [1,1.1],0,0.2) };
+
+//:Fading out
+~out = nil;	// setting the out to nil will use the fadeTIme interval to fade to silence
+
+* Playing  MANY OUTPUTS
+//:playing several output proxies
+// first you have to create them as proxies by sending the message play:
+~out1.play;
+~out2.play;
+// Then you can play functions inside them: 
+fork { 
+	loop {
+		~out1 = { SinOsc.ar([400, 408] * 0.8, 0, 0.1) };
+		1.wait;
+		~out2 = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600], 0.1) };
+		1.wait;
+		~out1 = { SinOsc.ar([400, 408] * 1.6, 0, 0.1) };
+		1.wait;
+		~out2 = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600] * 2, 0.1) };
+	}
+};
+
+* Setting Control Inputs
+
+//:Setting input control parameters
+~out = { arg freq = 400; SinOsc.ar(freq, 0, 0.1) };
+1.wait;
+~out.set(\freq, 800);
+1.wait;
+~out.set(\freq, 1200);
+1.wait;
+~out.set(\freq, 400);
+
+* Mapping control inputs to synths
+
+//:Map control inputs
+
+~lfo = { LFNoise2.kr(30, 300, 500) };
+~out = { SinOsc.ar(~lfo.kr, 0, 0.15)  };
+2.wait;
+~out = { SinOsc.ar(~lfo.kr * [1, 1.2], 0, 0.1) * Pulse.ar(~lfo.kr * [0.1, 0.125], 0.5) };
+2.wait;
+~lfo = { LFNoise1.kr(30, 40) + SinOsc.kr(0.1, 0, 200, 500) };
+10.wait;
+~out = { SinOsc.ar(~lfo.kr * [1, 1.2], 0, 0.1)  };
+2.wait;
+~lfo = 410;

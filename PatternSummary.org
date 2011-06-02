@@ -1,0 +1,176 @@
+#+TITLE: Pattern summary / cheatsheet
+
+
+
+* TODO: Include / incorporate listing from Pattern.html
+
+* Class listing with summaries:
+
+
+  Peventmod
+  Pget
+  Pswitch
+    [ Pswitch1 ]
+  Pevent
+  Pbinop
+  Pchain
+  Pstep3add
+  Plet
+  Pstep2add
+  Pmono
+    [ PmonoArtic ]
+  Pif
+  PstepNfunc
+    [ PstepNadd ]
+  Pbeta
+  
+  Pfuncn
+  Punop
+  Penvir
+  Pnaryop
+    [ PdegreeToKey ]
+  Pprob
+
+  PbindProxy
+  Pkey
+  Pseries
+  PhidSlot
+  PhidKey
+  Pbrown
+    [ Pgbrown ]
+
+  Pcauchy
+  Ppatmod
+  Ptime
+  Prout
+    [ Proutine Pspawner ]
+  Pindex
+  Pbind
+    [ Posc ]
+  Pfunc
+  Ppoisson
+  Pgeom
+  Pproto
+  Phid
+  Spawner
+  Pdict
+  Pstep
+    [ Pseg ]
+  
+  
+Pattern Proxies
+ 
+  PatternProxy
+  [
+    Pdefn
+    TaskProxy
+    [
+      Tdef
+      EventPatternProxy
+      [
+        Pdef
+          [ Pbindef ]
+      ]
+    ]
+  ]
+  
+ List Patterns
+ 
+  ListPattern
+  [
+    Pslide
+    Pxrand
+    Pfpar
+    Pwrand
+    Pshuf
+    Pseq
+      [ Pser Place Ppatlace ]
+    Ptuple
+    Pwalk
+    Ppar
+    [
+      Pgpar
+        [ Pgtpar ]
+      Ptpar
+    ]
+    Pdfsm
+    Pfsm
+    Prand
+  ]
+
+
+Random Generator Patterns
+
+  Pwhite
+    [ Phprand Pmeanrand Plprand Pexprand ]
+Pgauss
+
+Lazy Patterns
+
+  Plazy
+  [
+    PlazyEnvir
+      [ PlazyEnvirN ]
+  ]
+
+
+Filter Patterns
+
+  FilterPattern
+  [
+    Prorate
+    Psync
+    Pwrap
+    Plambda
+    Pseed
+    Psetpre
+      [ Paddpre Pmulpre ]
+    PfadeIn
+      [ PfadeOut ]
+    Pset
+    [
+      Padd
+      Psetp
+        [ Paddp Pmulp ]
+      Pmul
+    ]
+    Pgroup
+    Pplayer
+    Pavaroh
+    FuncFilterPattern
+      [ Pwhile Pfset Preject Pcollect Pselect ]
+    Pstretch
+      [ Pstretchp ]
+    Pfin
+      [ Pfinval ]
+    Pstutter
+      [ PdurStutter ]
+    Pdrop
+    Pclutch
+    Pn
+    PfinQuant
+    Pfindur
+    Plag
+    Psend
+    Psym
+    [
+      Psym1
+      Pnsym
+        [ Pnsym1 ]
+      Ptsym
+    ]
+    Ptrace
+    Prewrite
+    Pbus
+    Pspawn
+    Pfx
+      [ Pfxb ]
+    Pflow
+    Pconst
+    Pprotect
+    Pbindf
+    Pclump
+      [ Pflatten ]
+    Pdiff
+  ]
+ 

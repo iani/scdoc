@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>JitLib summary / cheatsheet</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-06-02 12:23:44 EEST"/>
+<meta name="author" content="Ioannis Zannos"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">JitLib summary / cheatsheet</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Frequently used classes </a></li>
+<li><a href="#sec-2">2 Class listing with summaries </a></li>
+<li><a href="#sec-3">3 Basics </a></li>
+<li><a href="#sec-4">4 Playing  MANY OUTPUTS </a></li>
+<li><a href="#sec-5">5 Setting Control Inputs </a></li>
+<li><a href="#sec-6">6 Mapping control inputs to synths </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Frequently used classes </h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Tdef (for tasks), ProxySpace, NodeProxy and Ndef (for synths), Pdef and Pdefn (for patterns).
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Class listing with summaries </h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+ProxySpace:                     Environment of references on the server
+EnvironmentRedirect:    Environment that redirects access (put) and assignment (at)
+LazyEnvir:                      Environment with deferred evaluation and default values.
+Maybe                           Referentially transparent proxy object
+</p>
+
+<p>
+Pdef            stream reference definition
+keep a reference to a stream that can be replaced while playing.
+Pdefn   non event stream reference definition
+keep a reference to a stream that can be replaced while playing.
+A change in the pattern definition propagates through all streams
+Tdef            task reference definition
+keep a reference to a task (time pattern) that can be replaced while playing
+Ndef            node proxy definition
+Reference to a proxy, forms an alternative to ProxySpace. 
+Fdef    Placeholder for functions to calculate with
+</p>
+<p>
+Pbindef 
+Psym    use a pattern of symbols to embed Pdefs
+Pnsym   use a pattern of symbols to embed Pdefn's
+</p>
+<p>
+NodeProxy
+PatternProxy    
+EventPatternProxy
+TaskProxy
+PbindProxy
+Pdict           pattern that embeds patterns from a dictionary
+</p>
+<p>
+BusPlug
+SkipJack
+EnvGate
+</p>
+<p>
+History
+</p>
+<p>
+Monitor
+</p>
+<p>
+ProxyMixer
+TdefAllGui
+PdefAllGui
+NdefMixer
+TdefGui
+PdefGui
+MonitorGui
+NdefGui
+NdefParamGui
+</p>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Basics </h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+//:Setup: Prepare for using Jitib
+</p>
+<p>
+p = ProxySpace.push(Server.default.boot);
+</p>
+<p>
+//:Create an output proxy for playing sounds with
+~out.play;
+</p>
+<p>
+//:Play some sounds with the output: Each new one replaces the previous output
+~out = { SinOsc.ar([400, 408] * 0.8, 0, 0.2) };
+1.wait;
+~out = { SinOsc.ar([443, 600 - Rand(0,200)], 0, 0.2) };
+1.wait;
+~out = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600], 0.1) + SinOsc.ar(60 * [1,1.1],0,0.2) };
+</p>
+<p>
+//:Stop playing
+~out.stop;
+</p>
+<p>
+//:Restart playing
+~out.play;      // also good after Command-.
+</p>
+<p>
+//:Setting the fadeTime interval
+~out.fadeTime = 1.5;
+// Now play again, with fade time:
+~out = { SinOsc.ar([400, 408] * 0.8, 0, 0.2) };
+3.wait;
+~out = { SinOsc.ar([443, 600 - Rand(0,200)], 0, 0.2) };
+3.wait;
+~out = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600], 0.1) + SinOsc.ar(60 * [1,1.1],0,0.2) };
+</p>
+<p>
+//:Fading out
+~out = nil;     // setting the out to nil will use the fadeTIme interval to fade to silence
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Playing  MANY OUTPUTS </h2>
+<div class="outline-text-2" id="text-4">
+
+<p>//:playing several output proxies
+// first you have to create them as proxies by sending the message play:
+~out1.play;
+~out2.play;
+// Then you can play functions inside them: 
+fork { 
+loop {
+~out1 = { SinOsc.ar([400, 408] * 0.8, 0, 0.1) };
+1.wait;
+~out2 = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600], 0.1) };
+1.wait;
+~out1 = { SinOsc.ar([400, 408] * 1.6, 0, 0.1) };
+1.wait;
+~out2 = { Resonz.ar(Saw.ar(40 + [0,0.2], 1), [1200, 1600] * 2, 0.1) };
+}
+};
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Setting Control Inputs </h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+//:Setting input control parameters
+~out = { arg freq = 400; SinOsc.ar(freq, 0, 0.1) };
+1.wait;
+~out.set(\freq, 800);
+1.wait;
+~out.set(\freq, 1200);
+1.wait;
+~out.set(\freq, 400);
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Mapping control inputs to synths </h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+//:Map control inputs
+</p>
+<p>
+~lfo = { LFNoise2.kr(30, 300, 500) };
+~out = { SinOsc.ar(~lfo.kr, 0, 0.15)  };
+2.wait;
+~out = { SinOsc.ar(~lfo.kr * [1, 1.2], 0, 0.1) * Pulse.ar(~lfo.kr * [0.1, 0.125], 0.5) };
+2.wait;
+~lfo = { LFNoise1.kr(30, 40) + SinOsc.kr(0.1, 0, 200, 500) };
+10.wait;
+~out = { SinOsc.ar(~lfo.kr * [1, 1.2], 0, 0.1)  };
+2.wait;
+~lfo = 410;
+</p></div>
+</div>
+<div id="postamble">
+<p class="author"> Author: Ioannis Zannos
+</p>
+<p class="date"> Date: 2011-06-02 12:23:44 EEST</p>
+<p class="creator">HTML generated by org-mode 7.4 in emacs 23</p>
+</div>
+</div>
+</body>
+</html>
